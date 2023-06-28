@@ -7,6 +7,9 @@ window.addEventListener("load", function () {
                 return b.hoursInSpace - a.hoursInSpace
             });
             console.log(sortedAstronauts);
+            // let greenColor = function(sortedAstronauts.active) {
+            //     if(sortedAstronauts.active){ add script style to change color}
+            // }
 
             const container = document.getElementById("container");
             container.innerHTML = `
