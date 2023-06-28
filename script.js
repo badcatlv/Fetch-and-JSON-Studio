@@ -4,13 +4,13 @@ window.addEventListener("load", function () {
         response.json().then(function (response) {
             console.log(response);
             let sortedAstronauts = response.sort(function(a, b){
-                a.hoursInSpace < b.hoursInSpace
-            })
+               return b.hoursInSpace - a.hoursInSpace
+            });
             const container = document.getElementById("container");
             container.innerHTML = `
-            <h2>Total = ${sortedAstronauts.length}</h2>
+            <h2>Total Astronauts: ${sortedAstronauts.length}
             `
-            for (let i = 0; i < response.length; i++) {
+            for (let i = 0; i < sortedAstronauts.length; i++) {
                 // console.log(response[i]);
                 container.innerHTML +=`
                 <div class="astronaut">
