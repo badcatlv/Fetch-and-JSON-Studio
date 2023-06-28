@@ -1,10 +1,9 @@
 // TODO: add code here
 window.addEventListener("load", function () {
-    let json = [];
     fetch("https://handlers.education.launchcode.org/static/astronauts.json").then(function (response) {
-        response.json().then(function (json) {
-            console.log(json);
-            let sortedAstronauts = json.sort(function(a, b){
+        response.json().then(function (response) {
+            console.log(response);
+            let sortedAstronauts = response.sort(function(a, b){
                 a.hoursInSpace < b.hoursInSpace
             })
             const container = document.getElementById("container");
