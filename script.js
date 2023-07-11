@@ -6,28 +6,39 @@ window.addEventListener("load", function () {
             let sortedAstronauts = json.sort(function (a, b) {
                 return b.hoursInSpace - a.hoursInSpace
             });
-            console.log(sortedAstronauts);
-            // let greenColor = function(sortedAstronauts.active) {
-            //     if(sortedAstronauts.active){ add script style to change color}
-            // }
 
             const container = document.getElementById("container");
-            container.innerHTML = `
-            <h2>Total Astronauts: ${sortedAstronauts.length}
+            container.innerHTML = ` 
+            <h2>Total Astronauts: ${json.length} 
             `
             for (let i = 0; i < sortedAstronauts.length; i++) {
+                const activeFormat = sortedAstronauts[i].active ? "green" : "black";
                 container.innerHTML += `
                 <div class="astronaut">
                     <div class="bio">
                         <h3>${sortedAstronauts[i].firstName} ${sortedAstronauts[i].lastName}</h3>
                         <ul>
                             <li>Hours in Space: ${sortedAstronauts[i].hoursInSpace}</li>
-                            <li>Active: ${sortedAstronauts[i].active}</li>
+                            <li>Active: <span style="color:${activeFormat}"> ${sortedAstronauts[i].active}</span></li>
                             <li>Skills: ${sortedAstronauts[i].skills.join(", ")}</li>
                         </ul>
                     </div>
                     <img class="avatar" src= "${sortedAstronauts[i].picture}">
             </div>`;
+            const activeGreen = document.querySelectorAll("#active");
+            for (let i = 0; i < activeGreen.length; i++) {
+                activeGreen[i].style.color = "red";
+                // if(activeGreen[i] === "Active: true") {
+                //     activeGreen[i].style.color = "red";
+                // }
+              }
+            // if (sortedAstronauts.active.value === "false") {
+                // activeGreen.style.color = "red";
+            // }
+                // const activeGreen = document.getElementById("active");
+                // if (activeGreen === "Active: false") {
+                //     activeGreen.style.color = "red";
+                // }
             }
         })
     })
